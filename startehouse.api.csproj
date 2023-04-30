@@ -4,6 +4,7 @@
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>6e8ccf3b-8d4e-41d3-928a-cf1560927f60</UserSecretsId>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
@@ -11,6 +12,59 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.13" />
+    <PackageReference Include="MySql.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.25.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.14" />
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.13">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="MySql.EntityFrameworkCore" />
+    <None Remove="Data\" />
+    <None Remove="Storage\" />
+    <None Remove="Microsoft.IdentityModel.Tokens" />
+    <None Remove="System.IdentityModel.Tokens.Jwt" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Domain\" />
+    <None Remove="Domain\Model\" />
+    <None Remove="Data\Repositories\" />
+    <None Remove="Aplication\" />
+    <None Remove="Aplication\Services\" />
+    <None Remove="Aplication\ViewModel\" />
+    <None Remove="Domain\DTO\" />
+    <None Remove="AutoMapper" />
+    <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Aplication\Mapping\" />
+    <None Remove="Microsoft.EntityFrameworkCore.Tools" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Versioning" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
+    <None Remove="Controllers\v1\" />
+    <None Remove="Aplication\Swagger\" />
+    <None Remove="Controllers\v2\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\" />
+    <Folder Include="Storage\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Model\" />
+    <Folder Include="Data\Repositories\" />
+    <Folder Include="Aplication\" />
+    <Folder Include="Aplication\Services\" />
+    <Folder Include="Aplication\ViewModel\" />
+    <Folder Include="Domain\DTO\" />
+    <Folder Include="Aplication\Mapping\" />
+    <Folder Include="Controllers\v1\" />
+    <Folder Include="Aplication\Swagger\" />
+    <Folder Include="Controllers\v2\" />
+  </ItemGroup>
 </Project>
