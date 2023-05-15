@@ -11,6 +11,7 @@ namespace startehouse.api.Data
         public DbSet<Company> Company { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+			//=> optionsBuilder.UseMySQL("server=starthouse.mysql.database.azure.com;database=start_house;user=ponygon;password=Merumerumei24"); 
 			=> optionsBuilder.UseMySQL("server=localhost;database=start_house;user=root;password=root"); 
 	}
 }
