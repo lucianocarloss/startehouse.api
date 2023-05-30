@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
@@ -13,6 +14,10 @@ using startehouse.api.Domain.Model;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//builder.Services.AddEntityFrameworkNpgsql()
+  //  .AddDbContext<Contexto>(Options =>
+    //Options.UseNpgsql(""));
 
 // Add services to the container.
  
@@ -67,6 +72,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddTransient<IPersonRepository, PersonRepository>();
+builder.Services.AddTransient<IClientesRepository, ClientesRepository>();
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>();
 
 builder.Services.AddCors(options => {

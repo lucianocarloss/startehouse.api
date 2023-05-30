@@ -36,9 +36,9 @@ namespace startehouse.api.Controllers.v1
         //}
 
 
-        [Authorize]
+        /*[Authorize]
         [HttpPost]
-        // GET: /<controller>/
+        //GET: /<controller>/
         public IActionResult Add([FromForm] PersonViewModel personView)
         {
             var filePath = Path.Combine("Storage", personView.Foto.FileName);
@@ -50,7 +50,7 @@ namespace startehouse.api.Controllers.v1
             _personRepository.Add(person);
 
             return Ok(person);
-        }
+        }*/
 
         [Authorize]
         [HttpPost]
