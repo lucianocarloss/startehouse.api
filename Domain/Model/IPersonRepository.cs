@@ -9,7 +9,7 @@ namespace startehouse.api.Domain.Model
 
 		List<PersonDTO> Get(int pageNumber, int pageQuantity);
 
-		Person? Get(int id); 
-	}
+		Person? Get(int id);
+    }
 }
 
