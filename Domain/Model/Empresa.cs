@@ -25,7 +25,7 @@ namespace startehouse.api.Domain.Model
         public DateTime? DataCriacao { get; set; }
         public DateTime? DataEdicao { get; set; }
 
-        public ICollection<Clientes>? Clientes { get; private set; }
+        //public ICollection<Clientes>? Clientes { get; private set; }
 
 		/*public Empresas(string Nome, string Razao, string Endereco, string Numero, string Bairro, string Cidade, string Estado, string Complemento, string CNPJ,
 			string Telefone, string Celular, string Email, string Contato, string Tipo, int Status, DateTime DataCriacao, DateTime DataEdicao)
