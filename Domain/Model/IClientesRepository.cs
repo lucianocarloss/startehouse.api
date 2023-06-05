@@ -8,9 +8,9 @@ namespace startehouse.api.Domain.Model
     {
         void Add(Clientes clientes);
 
-        List<ClientesDTO> Get();
+        //List<ClientesDTO> Get();
 
-        Clientes? Get(int id);
+        //Clientes? Get(int id);
     }
 }
 

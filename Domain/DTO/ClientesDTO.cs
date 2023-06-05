@@ -3,7 +3,7 @@ using startehouse.api.Domain.Model;
 
 namespace startehouse.api.Domain.DTO
 {
-	public class ClientesDTO
+	/*public class ClientesDTO
 	{
         public int Id { get; set; }
 
@@ -44,6 +44,6 @@ namespace startehouse.api.Domain.DTO
         public int? IdEmpresa { get; set; }
 
         public Empresas? Empresa { get; set; }
-    }
+    }*/
 }
 

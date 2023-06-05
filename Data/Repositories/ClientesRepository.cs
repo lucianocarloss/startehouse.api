@@ -4,7 +4,7 @@ using startehouse.api.Domain.Model;
 
 namespace startehouse.api.Data
 {
-    public class ClientesRepository : IClientesRepository
+    /*public class ClientesRepository : IClientesRepository
     {
 
         private readonly ConectionContext _contexts = new ConectionContext();
@@ -40,7 +40,7 @@ namespace startehouse.api.Data
                     DataEdicao = x.DataEdicao,
                     Status = x.Status,
                     IdEmpresa = x.IdEmpresa,
-                    Empresa = x.Empresa
+                    //Empresa = x.Empresa
                 })
                 .ToList();
         }
@@ -51,6 +51,6 @@ namespace startehouse.api.Data
         {
             return _contexts.Clientes.Find(id);
         }
-    }
+    }*/
 }
 

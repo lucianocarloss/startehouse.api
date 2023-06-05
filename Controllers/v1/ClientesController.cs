@@ -20,14 +20,14 @@ namespace startehouse.api.Controllers.v1
     public class ClientesController : ControllerBase 
     {
 
-        private readonly IClientesRepository _clientesRepository;
+        //private readonly IClientesRepository _clientesRepository;
         private readonly ILogger<ClientesController> _loggers;
         private readonly IMapper _mappers;
         private readonly ConectionContext _contexts = new ConectionContext();
 
-        public ClientesController(IClientesRepository clientesRepository, ILogger<ClientesController> logger, IMapper mapper)
+        public ClientesController( ILogger<ClientesController> logger, IMapper mapper)
         {
-            _clientesRepository = clientesRepository ?? throw new ArgumentNullException(nameof(clientesRepository));
+            //_clientesRepository = clientesRepository ?? throw new ArgumentNullException(nameof(clientesRepository));
             _loggers = logger ?? throw new ArgumentNullException(nameof(logger));
             _mappers = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -35,21 +35,26 @@ namespace startehouse.api.Controllers.v1
 
 
 
-        /*[Authorize]
+        //[Authorize]
         [HttpPost]
         // GET: /<controller>/
-        public IActionResult Add([FromForm] PersonViewModel personView)
+        public IActionResult Add([FromBody] Clientes _clientes)
         {
-            var filePath = Path.Combine("Storage", personView.Foto.FileName);
+            try
+            {
 
-            using Stream fileStream = new FileStream(filePath, FileMode.Create);
-            personView.Foto.CopyTo(fileStream);
+                _contexts.Clientes.Add(_clientes);
+                _contexts.SaveChanges();
 
-            var person = new Person(personView.Nome, personView.Telefone, personView.Email, personView.Ativo, filePath);
-            _personRepository.Add(person);
+                return Ok(_clientes);
 
-            return Ok(person);
-        }*/
+            }
+            catch (Exception e)
+            {
+                return BadRequest("Erro ao carregar um novo usuario! " + e);
+            }
+
+        }
 
 
         //[Authorize]
@@ -116,18 +121,7 @@ namespace startehouse.api.Controllers.v1
             return Ok(result);
         }
 
-        //[Authorize]
-        [HttpGet]
-        [Route("{Id}")]
-        public IActionResult Search(int Id)
-        {
-
-            var clientes = _clientesRepository.Get(Id);
-
-            var clientesDTO = _mappers.Map <ClientesDTO>(clientes);
-
-            return Ok(clientesDTO);
-        }
+        
         
     }
 }

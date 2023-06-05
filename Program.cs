@@ -72,7 +72,7 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 builder.Services.AddTransient<IPersonRepository, PersonRepository>();
-builder.Services.AddTransient<IClientesRepository, ClientesRepository>();
+//builder.Services.AddTransient<IClientesRepository, ClientesRepository>();
 builder.Services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerGenOptions>();
 
 builder.Services.AddCors(options => {

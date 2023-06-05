@@ -4,36 +4,36 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace startehouse.api.Domain.Model
 {
-	public class Clientes
+    [Table("Clientes")]
+    public class Clientes
 	{
 		[Key]
-		public int Id { get ; private set; }
-		public string? Nome { get ; private set; }
-		public string? Endereco { get ; private set; }
-		public string? Numero { get; private set; }
-		public string? Bairro { get; private set; }
-		public string? Cidade { get; private set; }
-		public string? Estado { get; private set; }
-        public string? Complemento { get; private set; }
-        public int? RG { get; private set; }
-		public string? CPF { get; private set; }
-		public string? Telefone { get; private set; }
-		public string? Celular { get; private set; }
-        public string? Celular_InstantMsg { get; private set; }
-        public string? Email { get; private set; }
-		public DateTime? Nascimento { get; private set; }
-		public DateTime? DataCriacao { get; private set; }
-		public DateTime? DataEdicao { get; private set; }
-		public int? Status { get; private set; }
+		public int Id { get ; set; }
+		public string? Nome { get ; set; }
+		public string? Endereco { get ; set; }
+		public string? Numero { get; set; }
+		public string? Bairro { get; set; }
+		public string? Cidade { get; set; }
+		public string? Estado { get; set; }
+        public string? Complemento { get; set; }
+        public int? RG { get; set; }
+		public string? CPF { get; set; }
+		public string? Telefone { get; set; }
+		public string? Celular { get; set; }
+        public string? Celular_InstantMsg { get; set; }
+        public string? Email { get; set; }
+		public DateTime? Nascimento { get; set; }
+		public DateTime? DataCriacao { get; set; }
+		public DateTime? DataEdicao { get; set; }
+		public int? Status { get; set; }
+        public int? IdEmpresa { get; set; }
 
-        public int? IdEmpresa { get; private set; }
+		//public virtual Empresas? Empresa { get; private set; }
 
-		public virtual Empresas? Empresa { get; private set; }
-
-        public Clientes(string Nome, string Endereco, string Numero, string Bairro, string Cidade, string Estado, string Complemento, int RG, string CPF,
-			string Telefone, string Celular, string Celular_InstantMsg, string Email, DateTime Nascimento, DateTime DataCriacao, DateTime DataEdicao, int Status, int IdEmpresa, Empresas Empresa)
+        public Clientes( string Nome, string Endereco, string Numero, string Bairro, string Cidade, string Estado, string Complemento, int RG, string CPF,
+			string Telefone, string Celular, string Celular_InstantMsg, string Email, DateTime Nascimento, DateTime DataCriacao, DateTime DataEdicao, int Status, int IdEmpresa)
 		{
-			this.Nome = Nome ?? throw new ArgumentNullException(nameof(Nome));
+            this.Nome = Nome;
             this.Endereco = Endereco;
 			this.Numero = Numero;
 			this.Bairro = Bairro;
@@ -51,7 +51,7 @@ namespace startehouse.api.Domain.Model
 			this.DataEdicao = DataEdicao;
 			this.Status = Status;
 			this.IdEmpresa = IdEmpresa;
-			this.Empresa = Empresa;
+			//this.Empresa = Empresa;
 		}
 
 		public Clientes()

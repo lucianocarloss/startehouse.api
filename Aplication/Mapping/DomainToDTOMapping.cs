@@ -9,9 +9,8 @@ namespace startehouse.api.Aplication.Mapping
 	{
 		public DomainToDTOMapping()
 		{
-			CreateMap<Person, PersonDTO>();
 
-			CreateMap<Clientes, ClientesDTO>();
+			//CreateMap<Clientes, Clientes>();
 		}
 	}
 }
