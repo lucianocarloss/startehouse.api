@@ -51,7 +51,7 @@ namespace startehouse.api.Controllers.v1
             }
             catch (Exception e)
             {
-                return BadRequest("Erro ao carregar um novo usuario! " + e);
+                return BadRequest("Erro ao gravar um novo usuario!");
             }
 
         }
@@ -117,6 +117,61 @@ namespace startehouse.api.Controllers.v1
 
 
             //_logger.LogInformation("Aconteceu um erro");
+
+            return Ok(result);
+        }
+
+
+        [HttpGet]
+        [Route("{Id}")]
+        public IActionResult Search(int Id)
+        {
+            var Empres = _contexts.Empresa.AsParallel().ToList();
+
+            var result = _contexts.Clientes.Select(x => new
+            {
+                Id = x.Id,
+                Nome = x.Nome,
+                Endereco = x.Endereco,
+                Numero = x.Numero,
+                Bairro = x.Bairro,
+                Cidade = x.Cidade,
+                Estado = x.Estado,
+                Complemento = x.Complemento,
+                RG = x.RG,
+                CPF = x.CPF,
+                Telefone = x.Telefone,
+                Celular = x.Celular,
+                Celular_InstantMsg = x.Celular_InstantMsg,
+                Email = x.Email,
+                Nascimento = x.Nascimento,
+                DataCriacao = x.DataCriacao,
+                DataEdicao = x.DataEdicao,
+                Status = x.Status,
+                IdEmpresa = x.IdEmpresa,
+                Empresa = _contexts.Empresa.Where(w => w.Id == x.IdEmpresa).Select(y => new
+                {
+                    y.Id,
+                    y.Nome,
+                    y.Razao,
+                    y.Endereco,
+                    y.Numero,
+                    y.Bairro,
+                    y.Cidade,
+                    y.Estado,
+                    y.Complemento,
+                    y.CNPJ,
+                    y.Telefone,
+                    y.Celular,
+                    y.Email,
+                    y.Contato,
+                    y.Tipo,
+                    y.Status,
+                    y.DataCriacao,
+                    y.DataEdicao
+
+                }).ToList()
+            }).ToList().Where(y => y.Id == Id);
 
             return Ok(result);
         }

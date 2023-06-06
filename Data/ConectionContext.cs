@@ -6,7 +6,7 @@ namespace startehouse.api.Data
 {
 	public class ConectionContext : DbContext
 	{
-		public DbSet<Person> Person { get; set; }
+		public DbSet<Usuario>? Usuario { get; set; }
 
         public DbSet<Teste> Teste { get; set; }
 

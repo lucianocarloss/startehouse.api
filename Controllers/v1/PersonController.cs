@@ -15,13 +15,13 @@ namespace startehouse.api.Controllers.v1
     public class PersonController : ControllerBase 
     {
 
-        private readonly IPersonRepository _personRepository;
+        //private readonly IPersonRepository _personRepository;
         private readonly ILogger<PersonController> _logger;
         private readonly IMapper _mapper;
 
-        public PersonController(IPersonRepository personRepository, ILogger<PersonController> logger, IMapper mapper)
+        public PersonController( ILogger<PersonController> logger, IMapper mapper)
         {
-            _personRepository = personRepository ?? throw new ArgumentNullException(nameof(personRepository));
+            //_personRepository = personRepository ?? throw new ArgumentNullException(nameof(personRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
@@ -52,7 +52,7 @@ namespace startehouse.api.Controllers.v1
             return Ok(person);
         }*/
 
-        [Authorize]
+        /*[Authorize]
         [HttpPost]
         [Route("{id}/download")]
         public IActionResult DownloadFotos(int id)
@@ -90,6 +90,6 @@ namespace startehouse.api.Controllers.v1
             var personsDTO = _mapper.Map <PersonDTO>(person);
 
             return Ok(personsDTO);
-        }
+        }*/
     }
 }

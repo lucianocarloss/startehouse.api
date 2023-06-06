@@ -10,7 +10,7 @@ namespace startehouse.api.Aplication.Mapping
 		public DomainToDTOMapping()
 		{
 
-			//CreateMap<Clientes, Clientes>();
+			
 		}
 	}
 }

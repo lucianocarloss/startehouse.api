@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
+using startehouse.api.Data;
 using startehouse.api.Domain.Model;
 using startehouse.api.Services;
 
@@ -9,20 +10,26 @@ namespace startehouse.api.Controllers
     [Route("api/v1/auth")]
     public class AuthController : Controller
     {
+
+
+        private readonly ConectionContext _contexts = new ConectionContext();
+
         // POST api/values
         [HttpPost]
-        public IActionResult Auth(string username, string password)
+        public IActionResult Auth(string user)
         {
 
-            //https://localhost:7060/api/v1/auth?username=luciano&password=123456&api-version=1.0
-            //https://localhost:7060/api/v1/auth?username=luluca&password=12345&api-version=1.0
-            if (username == "luciano" && password == "123456")
-            {
-                var token = TokenService.GenerateToken(new Person());
-                return Ok(token);
-            }
+            var hash = user;
 
-            return BadRequest("Usuário ou Senha Inválida!!!");
+            if (user == null) return BadRequest("Sem Dados de acesso!");
+
+            var noDual = _contexts.Usuario.FirstOrDefault(x => x.Senha == hash);
+
+            if(noDual == null) return BadRequest("Usuário ou Senha Inválida!!!");
+
+            var token = TokenService.GenerateToken(noDual);
+            return Ok(token);
+
         }
     }
 }

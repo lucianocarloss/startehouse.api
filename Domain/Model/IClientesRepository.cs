@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using startehouse.api.Domain.DTO;
 
 namespace startehouse.api.Domain.Model
@@ -12,5 +12,5 @@ namespace startehouse.api.Domain.Model
 
         //Clientes? Get(int id);
     }
-}
+}*/
 

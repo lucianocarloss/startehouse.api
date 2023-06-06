@@ -9,15 +9,17 @@ namespace startehouse.api.Services
 {
 	public class TokenService
 	{
-		public static object GenerateToken(Person person)
+		public static object GenerateToken(Usuario Usuario)
 		{
 			var key = Encoding.ASCII.GetBytes(Key.Secret);
 			var tokenConfig = new SecurityTokenDescriptor
 			{
 				Subject = new System.Security.Claims.ClaimsIdentity(new Claim[]
 				{
-					new Claim("personId", person.Id.ToString()),
-				}),
+					new Claim("usuarioId", Usuario.Id.ToString()),
+                    new Claim("IdEmpresa", Usuario.IdEmpresa.ToString()),
+                    new Claim("userName", Usuario.UserName.ToString())
+                }),
 				Expires = DateTime.UtcNow.AddHours(3),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
 			};
