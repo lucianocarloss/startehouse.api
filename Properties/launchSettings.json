@@ -1,13 +1,4 @@
 {
-  "$schema": "https://json.schemastore.org/launchsettings.json",
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-    "iisExpress": {
-      "applicationUrl": "http://localhost:7717",
-      "sslPort": 44323
-    }
-  },
   "profiles": {
     "http": {
       "commandName": "Project",
@@ -31,6 +22,14 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "startehouse.api": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:54467;http://localhost:53760",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

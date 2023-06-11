@@ -1,12 +1,10 @@
 ﻿using System.Linq;
 using System.Net.NetworkInformation;
-using AutoMapper;
+//using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using startehouse.api.Data;
-using startehouse.api.Domain.DTO;
 using startehouse.api.Domain.Model;
-using startehouse.api.ViewModel;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -20,24 +18,22 @@ namespace startehouse.api.Controllers.v1
     public class ClientesController : ControllerBase 
     {
 
-        //private readonly IClientesRepository _clientesRepository;
-        private readonly ILogger<ClientesController> _loggers;
-        private readonly IMapper _mappers;
+        //private readonly ILogger<ClientesController> _loggers;
+        //private readonly IMapper _mappers;
         private readonly ConectionContext _contexts = new ConectionContext();
 
-        public ClientesController( ILogger<ClientesController> logger, IMapper mapper)
+        /*public ClientesController( ILogger<ClientesController> logger, IMapper mapper)
         {
             //_clientesRepository = clientesRepository ?? throw new ArgumentNullException(nameof(clientesRepository));
             _loggers = logger ?? throw new ArgumentNullException(nameof(logger));
             _mappers = mapper ?? throw new ArgumentNullException(nameof(mapper));
-        }
+        }*/
 
 
 
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
-        // GET: /<controller>/
         public IActionResult Add([FromBody] Clientes _clientes)
         {
             try
@@ -51,13 +47,13 @@ namespace startehouse.api.Controllers.v1
             }
             catch (Exception e)
             {
-                return BadRequest("Erro ao gravar um novo usuario!");
+                return BadRequest("Erro ao cadastrar novo cliente!");
             }
 
         }
 
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult Load()
         {
@@ -122,6 +118,8 @@ namespace startehouse.api.Controllers.v1
         }
 
 
+
+        [Authorize]
         [HttpGet]
         [Route("{Id}")]
         public IActionResult Search(int Id)

@@ -9,7 +9,7 @@ namespace startehouse.api.Services
 {
 	public class TokenService
 	{
-		public static object GenerateToken(Usuario Usuario)
+		public static object GenerateToken(Usuario Usuario, Empresas emp)
 		{
 			var key = Encoding.ASCII.GetBytes(Key.Secret);
 			var tokenConfig = new SecurityTokenDescriptor
@@ -18,7 +18,8 @@ namespace startehouse.api.Services
 				{
 					new Claim("usuarioId", Usuario.Id.ToString()),
                     new Claim("IdEmpresa", Usuario.IdEmpresa.ToString()),
-                    new Claim("userName", Usuario.UserName.ToString())
+                    new Claim("userName", Usuario.UserName.ToString()),
+                    new Claim("empName", emp.Nome.ToString())
                 }),
 				Expires = DateTime.UtcNow.AddHours(3),
 				SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)

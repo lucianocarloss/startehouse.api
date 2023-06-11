@@ -2,9 +2,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using startehouse.api.Data;
-using startehouse.api.Domain.DTO;
 using startehouse.api.Domain.Model;
-using startehouse.api.ViewModel;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 

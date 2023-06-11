@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using startehouse.api;
-using startehouse.api.Aplication.Mapping;
+//using startehouse.api.Aplication.Mapping;
 using startehouse.api.Aplication.Swagger;
 using startehouse.api.Data;
 using startehouse.api.Domain.Model;
@@ -21,7 +21,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
  
-builder.Services.AddAutoMapper(typeof(DomainToDTOMapping));
+//builder.Services.AddAutoMapper(typeof(DomainToDTOMapping));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -133,6 +133,27 @@ app.UseCors("MyPolicy");
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+#region NavAngular
+
+app.Use(async (context, next) =>
+{
+    await next();
+    if (context.Response.StatusCode == 404 && !Path.HasExtension(context.Request.Path.Value))
+    {
+        context.Request.Path = "/index.html";
+        await next();
+    }
+});
+
+#endregion
+// Configure the HTTP request pipeline.
+// iniciar wwwroot index.html.
+var options = new DefaultFilesOptions();
+options.DefaultFileNames.Clear();
+options.DefaultFileNames.Add("index.html");
+app.UseDefaultFiles(options);
+app.UseStaticFiles();
 
 app.MapControllers();
 

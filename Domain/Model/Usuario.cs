@@ -8,14 +8,14 @@ namespace startehouse.api.Domain.Model
     public class Usuario
 	{
 		[Key]
-		public int Id { get; private set; }
-		public string? Login { get; private set; }
-        public string Senha { get; private set; }
-        public DateTime UltimoLogin { get; private set; }
-		public int Status { get; private set; }
-		public int IdColaborador { get; private set; }
+		public int Id { get; set; }
+		public string Login { get; set; }
+        public string Senha { get; set; }
+        public DateTime UltimoLogin { get; set; }
+		public int Status { get; set; }
+		public int IdColaborador { get; set; }
 		public int IdEmpresa { get; set; }
-        public string? UserName { get; private set; }
+        public string UserName { get; set; }
 
 
         public Usuario(string Login, string Senha, DateTime UltimoLogin, int Status, int IdColaborador, int IdEmpresa, string UserName)

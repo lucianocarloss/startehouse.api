@@ -25,9 +25,11 @@ namespace startehouse.api.Controllers
 
             var noDual = _contexts.Usuario.FirstOrDefault(x => x.Senha == hash);
 
+            var Emp = _contexts.Empresa.FirstOrDefault(y => y.Id == noDual.IdEmpresa);
+
             if(noDual == null) return BadRequest("Usuário ou Senha Inválida!!!");
 
-            var token = TokenService.GenerateToken(noDual);
+            var token = TokenService.GenerateToken(noDual, Emp);
             return Ok(token);
 
         }

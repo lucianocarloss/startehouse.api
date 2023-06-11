@@ -40,11 +40,8 @@
     <None Remove="Domain\Model\" />
     <None Remove="Aplication\" />
     <None Remove="Aplication\Services\" />
-    <None Remove="Aplication\ViewModel\" />
-    <None Remove="Domain\DTO\" />
     <None Remove="AutoMapper" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
-    <None Remove="Aplication\Mapping\" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Microsoft.AspNetCore.Mvc.Versioning" />
     <None Remove="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
@@ -59,11 +56,12 @@
     <Folder Include="Domain\Model\" />
     <Folder Include="Aplication\" />
     <Folder Include="Aplication\Services\" />
-    <Folder Include="Aplication\ViewModel\" />
-    <Folder Include="Domain\DTO\" />
-    <Folder Include="Aplication\Mapping\" />
     <Folder Include="Controllers\v1\" />
     <Folder Include="Aplication\Swagger\" />
     <Folder Include="Controllers\v2\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
   </ItemGroup>
 </Project>
