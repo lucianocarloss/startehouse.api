@@ -59,9 +59,11 @@
     <Folder Include="Controllers\v1\" />
     <Folder Include="Aplication\Swagger\" />
     <Folder Include="Controllers\v2\" />
-    <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\favicon.ico" />
+    <Content Remove="wwwroot\index.html" />
+    <Content Remove="wwwroot\assets\style\component\_menu.scss" />
+    <Content Remove="wwwroot\assets\style\base\_color.scss" />
   </ItemGroup>
 </Project>
